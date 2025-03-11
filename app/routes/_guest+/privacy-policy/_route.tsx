@@ -1,55 +1,46 @@
-import { Button } from "~/components/ui/button";
-import { Card, CardContent } from "~/components/ui/card";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "~/components/ui/accordion";
-import { ArrowLeft, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
 import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "ThinkLedger | Privacy policy" },
-    {
-      name: "description",
-      content: `ThinkLedger is committed to protecting 
-      your privacy and ensuring the security of your personal and 
-      business data.`,
-    },
-  ];
+	return [
+		{ title: "ThinkLedger | Privacy policy" },
+		{
+			name: "description",
+			content: `ThinkLedger is committed to protecting 
+     		your privacy and ensuring the security of your personal and 
+     		business data.`,
+		},
+	];
 };
 
 export default function PrivacyPolicy() {
-  const lastUpdated = "March 3, 2025";
+	const lastUpdated = "March 8, 2025";
 
-  return (
-    <>
-      <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
-      <div className="mb-8">
-        <div className="flex items-center gap-3 mb-4">
-          <Shield className="h-12 w-12" />
-          <p className="text-sm text-muted-foreground">
-            Last updated: {lastUpdated}
-          </p>
-        </div>
-        <p className="mb-4">
-          ThinkLedger ("we," "our," or "us") is committed to protecting your
-          privacy and ensuring the security of your personal and business data.
-          This Privacy Policy outlines how we collect, use, store, and protect
-          your information when you use our services.
-          {/* which requires access to
+	return (
+		<>
+			<h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
+			<div className="mb-4">
+				<div className="flex items-center gap-3 mb-4">
+					<Shield className="h-8 w-8" />
+					<p className="text-sm">Last updated: {lastUpdated}</p>
+				</div>
+				<p className="mb-4">
+					ThinkLedger ("we," "our," or "us") is committed to
+					protecting your privacy and ensuring the security of your
+					personal and business data. This Privacy Policy outlines how
+					we collect, use, store, and protect your information when
+					you use our services.
+					{/* which requires access to
           your Google Workspace account. */}
-        </p>
-        {/* <p>
+				</p>
+				{/* <p>
           By using our services, you consent to the data practices described in
           this Privacy Policy.
         </p> */}
-      </div>
+			</div>
 
-      <Accordion type="single" collapsible className="w-full space-y-4">
-        {/* <AccordionItem
+			<div className="w-full space-y-4">
+				{/* <AccordionItem
           value="information-collection"
           className="border rounded-lg px-6"
         >
@@ -85,7 +76,7 @@ export default function PrivacyPolicy() {
           </AccordionContent>
         </AccordionItem> */}
 
-        {/* <AccordionItem value="usage-data" className="border rounded-lg px-6">
+				{/* <AccordionItem value="usage-data" className="border rounded-lg px-6">
           <AccordionTrigger className="text-lg font-medium py-4">
             How we use your information
           </AccordionTrigger>
@@ -109,90 +100,95 @@ export default function PrivacyPolicy() {
           </AccordionContent>
         </AccordionItem> */}
 
-        <AccordionItem
-          value="communication-preferences"
-          className="border rounded-lg px-6"
-        >
-          <AccordionTrigger className="font-medium py-4">
-            Communications & email preferences
-          </AccordionTrigger>
-          <AccordionContent className="pb-4 pt-2 text-muted-foreground space-y-4">
-            <p>
-              When you sign up for our product waitlist or subscribe to our
-              updates, we will only send you relevant communications related to
-              our product, including launch updates, early access opportunities,
-              and exclusive announcements. We do not send spam, and you can
-              unsubscribe at any time by clicking the unsubscribe link in our
-              emails.
-            </p>
-            <p>
-              We respect your privacy and will never sell, rent, or share your
-              email address with third parties.
-            </p>
-          </AccordionContent>
-        </AccordionItem>
+				<section id="communication-preferences">
+					<h2 className="font-medium py-4 text-2xl">
+						Communications & Email Preferences
+					</h2>
+					<div className="pb-4 space-y-4">
+						<p>
+							When you sign up for our product waitlist or
+							subscribe to our updates, we will only send you
+							relevant communications related to our product,
+							including launch updates, early access
+							opportunities, and exclusive announcements. We do
+							not send spam, and you can unsubscribe at any time
+							by clicking the unsubscribe link in our emails.
+						</p>
+						<p>
+							We respect your privacy and will never sell, rent,
+							or share your email address with third parties.
+						</p>
+					</div>
+				</section>
 
-        {/* <AccordionItem value="data-security" className="border rounded-lg px-6">
-          <AccordionTrigger className="text-lg font-medium py-4">
-            Data security measures
-          </AccordionTrigger>
-          <AccordionContent className="pb-4 pt-2 text-muted-foreground space-y-4">
-            <p>
-              We implement industry-leading security measures to protect your
-              information, including:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>
-                <strong>Encryption:</strong> Data is encrypted in transit and at
-                rest using industry-standard protocols (TLS, AES-256).
-              </li>
-              <li>
-                <strong>Access Controls:</strong> Restricted access based on
-                least privilege principles and multi-factor authentication.
-              </li>
-              <li>
-                <strong>Regular Audits:</strong> Routine security assessments
-                and penetration testing to identify vulnerabilities.
-              </li>
-              <li>
-                <strong>Data Minimization:</strong> We only store necessary data
-                and purge outdated information as per retention policies.
-              </li>
-              <li>
-                <strong>Compliance Standards:</strong> Adherence to PIPEDA and
-                other relevant data protection laws.
-              </li>
-            </ul>
-          </AccordionContent>
-        </AccordionItem> */}
+				<section id="data-security">
+					<h2 className="font-medium py-4 text-2xl">
+						Data security measures
+					</h2>
+					<div className="pb-4 pt-2 text-muted-foreground space-y-4">
+						<p>
+							We implement industry-leading security measures to
+							protect your information, including:
+						</p>
+						<ul className="list-disc pl-6 space-y-2">
+							<li>
+								<strong>Encryption:</strong> Data is encrypted
+								in transit and at rest using industry-standard
+								protocols (TLS, AES-256).
+							</li>
+							<li>
+								<strong>Access Controls:</strong> Restricted
+								access based on least privilege principles and
+								multi-factor authentication.
+							</li>
+							<li>
+								<strong>Regular Audits:</strong> Routine
+								security assessments and penetration testing to
+								identify vulnerabilities.
+							</li>
+							<li>
+								<strong>Data Minimization:</strong> We only
+								store necessary data and purge outdated
+								information as per retention policies.
+							</li>
+							<li>
+								<strong>Compliance Standards:</strong> Adherence
+								to PIPEDA and other relevant data protection
+								laws.
+							</li>
+						</ul>
+					</div>
+				</section>
 
-        <AccordionItem value="cookies" className="border rounded-lg px-6">
-          <AccordionTrigger className="font-medium py-4">
-            Tracking & cookies data
-          </AccordionTrigger>
-          <AccordionContent className="pb-4 pt-2 text-muted-foreground space-y-4">
-            <p>
-              We use cookies and similar tracking technologies to track the
-              activity on our service and hold certain information.
-            </p>
-            <p>
-              Cookies are files with a small amount of data which may include an
-              anonymous unique identifier. Cookies are sent to your browser from
-              a website and stored on your device. Tracking technologies also
-              used are beacons, tags, and scripts to collect and track
-              information and to improve and analyze our service.
-            </p>
-            <p>
-              You can instruct your browser to refuse all cookies or to indicate
-              when a cookie is being sent. You can also edit your cookie
-              settings by clicking on the Cookie Preferences button at the
-              bottom of the page.
-              {/* However, if you do not accept
+				<section id="cookie-policy">
+					<h2 className="font-medium py-4 text-2xl">
+						Tracking & cookies data
+					</h2>
+					<div className="pb-4 space-y-4">
+						<p>
+							We use cookies and similar tracking technologies to
+							track the activity on our service and hold certain
+							information.
+						</p>
+						<p>
+							Cookies are files with a small amount of data which
+							may include an anonymous unique identifier. Cookies
+							are sent to your browser from a website and stored
+							on your device. Tracking technologies also used are
+							beacons, tags, and scripts to collect and track
+							information and to improve and analyze our service.
+						</p>
+						<p>
+							You can instruct your browser to refuse all cookies
+							or to indicate when a cookie is being sent. You can
+							also edit your cookie settings by clicking on the
+							Cookie Preferences button at the bottom of the page.
+							{/* However, if you do not accept
               cookies, you may not be able to use some portions of our service. */}
-            </p>
-            <p>Examples of Cookies we use:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              {/* <li>
+						</p>
+						<p>Examples of Cookies we use:</p>
+						<ul className="list-disc pl-6 space-y-2">
+							{/* <li>
                 <strong>Session Cookies:</strong> We use Session Cookies to
                 operate our service.
               </li>
@@ -200,16 +196,25 @@ export default function PrivacyPolicy() {
                 <strong>Preference Cookies:</strong> We use Preference Cookies
                 to remember your preferences and various settings.
               </li> */}
-              <li>
-                <strong>Analytics cookies:</strong> These cookies help us
-                understand how visitors interact with the website, helping us
-                improve our services.
-              </li>
-            </ul>
-          </AccordionContent>
-        </AccordionItem>
+							<li>
+								<strong>Analytics cookies:</strong> These
+								cookies help us understand how visitors interact
+								with the website, helping us improve our
+								services.
+							</li>
+						</ul>
+						<div className="mt-2">
+							<a
+								href="#cookie-preferences"
+								className="underline hover:text-gray-300 hover:cursor-pointer"
+							>
+								Update your cookie preferences
+							</a>
+						</div>
+					</div>
+				</section>
 
-        {/* <AccordionItem value="data-use" className="border rounded-lg px-6">
+				{/* <AccordionItem value="data-use" className="border rounded-lg px-6">
           <AccordionTrigger className="text-lg font-medium py-4">
             Use of data
           </AccordionTrigger>
@@ -233,7 +238,7 @@ export default function PrivacyPolicy() {
           </AccordionContent>
         </AccordionItem> */}
 
-        {/* <AccordionItem value="data-sharing" className="border rounded-lg px-6">
+				{/* <AccordionItem value="data-sharing" className="border rounded-lg px-6">
           <AccordionTrigger className="text-lg font-medium py-4">
             Data sharing and disclosure
           </AccordionTrigger>
@@ -262,7 +267,7 @@ export default function PrivacyPolicy() {
           </AccordionContent>
         </AccordionItem> */}
 
-        {/* <AccordionItem value="use-control" className="border rounded-lg px-6">
+				{/* <AccordionItem value="use-control" className="border rounded-lg px-6">
           <AccordionTrigger className="text-lg font-medium py-4">
             User control and consent
           </AccordionTrigger>
@@ -286,7 +291,7 @@ export default function PrivacyPolicy() {
           </AccordionContent>
         </AccordionItem> */}
 
-        {/* <AccordionItem
+				{/* <AccordionItem
           value="data-retention"
           className="border rounded-lg px-6"
         >
@@ -324,24 +329,23 @@ export default function PrivacyPolicy() {
           </AccordionContent>
         </AccordionItem> */}
 
-        <AccordionItem value="contact" className="border rounded-lg px-6">
-          <AccordionTrigger className="font-medium py-4">
-            Contact us
-          </AccordionTrigger>
-          <AccordionContent className="pb-4 pt-2 text-muted-foreground space-y-4">
-            <p>
-              If you have any questions about this Privacy Policy, please
-              contact us:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>By email: support@thinkledger.app</li>
-              <li>
-                By visiting the contact section at the bottom of the page.
-              </li>
-            </ul>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-    </>
-  );
+				<section id="contact">
+					<h2 className="font-medium py-4 text-2xl">Contact us</h2>
+					<div className="pb-4 space-y-4">
+						<p>
+							If you have any questions about this Privacy Policy,
+							please contact us:
+						</p>
+						<ul className="list-disc pl-6 space-y-2">
+							<li>By email: support@thinkledger.app</li>
+							<li>
+								By visiting the contact section at the bottom of
+								the page.
+							</li>
+						</ul>
+					</div>
+				</section>
+			</div>
+		</>
+	);
 }
