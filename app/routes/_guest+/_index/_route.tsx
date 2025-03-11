@@ -2,14 +2,14 @@ import type { MetaFunction } from "@remix-run/node";
 import Features from "./Features";
 import Benefits from "./Benefits";
 import Cta from "./Cta";
-import { Link, useFetcher } from "@remix-run/react";
+import { useFetcher } from "@remix-run/react";
 import { useState, useRef, useEffect } from "react";
 import { validateData, getEnv, validateENV } from "~/lib/utils";
 import * as z from "zod";
 import { AxiosError } from "axios";
 import api from "~/lib/api";
 import type { ActionFunctionArgs } from "@remix-run/node";
-import { WaitlistFormActionResponse, WaitlistFormErrors } from "~/lib/types";
+import { WaitlistFormActionResponse } from "~/lib/types";
 // import Testimonials from "./Testimonials";
 // import Pricing from "~/components/Pricing";
 
@@ -141,8 +141,8 @@ export default function IndexPage() {
 	return (
 		<main className="space-y-20">
 			{/* Hero Section */}
-			<section className="">
-				<div>
+			<section>
+				<div className="z-20">
 					<h1 className="text-5xl md:text-5xl lg:text-5xl font-medium mb-4 leading-[1.2]">
 						Keep track of your business's financial health.
 					</h1>
@@ -165,7 +165,7 @@ export default function IndexPage() {
 					/>
 				</div>
 			</section>
-			{/* <hr /> */}
+
 			{/* Features Section */}
 			<section id="features">
 				<Features />

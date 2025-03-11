@@ -38,13 +38,13 @@
 // };
 
 export type WaitlistFormErrors = {
-  firstname: string;
-  lastname: string;
-  email: string;
+	firstname?: string;
+	lastname?: string;
+	email?: string;
 };
 
 export type WaitlistFormActionResponse = Response & {
-  errors?: WaitlistFormErrors;
-  error?: string;
-  success?: true;
+	errors?: WaitlistFormErrors;
+	error?: string;
+	success?: boolean;
 };

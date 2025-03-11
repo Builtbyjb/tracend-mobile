@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { FetcherWithComponents, Link, useFetcher } from "@remix-run/react";
 import { Button } from "~/components/ui/button";
-import { Checkbox } from "~/components/ui/checkbox";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { X } from "lucide-react";
 import { WaitlistFormActionResponse } from "~/lib/types";
 import { Card } from "~/components/ui/card";
+import { btn, linkText } from "~/lib/styles";
 
 type Props = {
 	formRef: React.RefObject<HTMLFormElement>;
@@ -34,7 +34,7 @@ export default function JoinWaitlist({
 			<Button
 				size="lg"
 				onClick={() => setShow(true)}
-				className="bg-accent text-white hover:bg-accent font-poppins hover:bg-blue-900"
+				className={`${btn}`}
 			>
 				Join waitlist
 			</Button>
@@ -62,16 +62,14 @@ export default function JoinWaitlist({
 				</p>
 				<fetch.Form ref={formRef} className="space-y-4">
 					<div>
-						<Label
-							htmlFor="firstname"
-							className="text-white font-poppins"
-						>
+						<Label htmlFor="firstname">
 							First name
-							<span className="text-red-500">*</span>
+							<span className="text-red-500 ms-2">*</span>
 						</Label>
 						<Input
 							className="font-poppins text-gray-900"
 							placeholder="Enter your first name"
+							id="firstname"
 							name="firstname"
 							type="text"
 						/>
@@ -80,16 +78,14 @@ export default function JoinWaitlist({
 						</p>
 					</div>
 					<div>
-						<Label
-							htmlFor="lastname"
-							className="text-white font-poppins"
-						>
+						<Label htmlFor="lastname">
 							Last name
-							<span className="text-red-500">*</span>
+							<span className="text-red-500 ms-2">*</span>
 						</Label>
 						<Input
 							placeholder="Enter your last name"
 							name="lastname"
+							id="lastname"
 							type="text"
 							className="font-poppins text-gray-900"
 						/>
@@ -98,18 +94,16 @@ export default function JoinWaitlist({
 						</p>
 					</div>
 					<div>
-						<Label
-							htmlFor="email"
-							className="text-white font-poppins"
-						>
+						<Label htmlFor="email">
 							Email
-							<span className="text-red-500">*</span>
+							<span className="text-red-500 ms-2">*</span>
 						</Label>
 						<Input
 							placeholder="Enter your email"
 							className="font-poppins text-gray-900"
 							type="email"
 							name="email"
+							id="email"
 						/>
 						<p className="text-sm text-red-500">
 							{fetch.data?.errors?.email}
@@ -121,7 +115,7 @@ export default function JoinWaitlist({
 						<Link
 							to={"/privacy-policy#communication-preferences"}
 							target="_blank"
-							className="underline text-white"
+							className={`${linkText}`}
 						>
 							privacy policy
 						</Link>{" "}
@@ -129,7 +123,7 @@ export default function JoinWaitlist({
 					</p>
 					<Button
 						type="submit"
-						className="w-full bg-accent text-white font-poppins hover:bg-blue-900"
+						className={`${btn}`}
 						onClick={(event) => {
 							handleSubmit(event);
 						}}

@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
+import { Scale } from "lucide-react";
 
 export const meta: MetaFunction = () => {
 	return [
@@ -21,7 +22,10 @@ export default function TermsOfService() {
 	return (
 		<>
 			<h1 className="text-3xl font-bold mb-4">Terms of Service</h1>
-			<p className="text-sm mb-4">Last updated: {lastUpdated}</p>
+			<div className="mb-4 flex items-center gap-3">
+				<Scale className="h-8 w-8" />
+				<p className="text-sm">Last updated: {lastUpdated}</p>
+			</div>
 			<div className="w-full space-y-4">
 				<section id="acceptance-of-terms">
 					<h2 className="font-medium py-4 text-2xl">

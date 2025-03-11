@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
 	return (
 		<>
 			<h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
-			<div className="mb-8">
+			<div className="mb-4">
 				<div className="flex items-center gap-3 mb-4">
 					<Shield className="h-8 w-8" />
 					<p className="text-sm">Last updated: {lastUpdated}</p>

@@ -3,27 +3,38 @@ import { useLocation } from "@remix-run/react";
 import { Menu } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
+import ChartSVG from "~/components/ChartSVG";
 
 const navItems = [
-  { name: "Services", href: "/services" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "Contact", href: "/contact" },
+	{ name: "Services", href: "/services" },
+	{ name: "Pricing", href: "/pricing" },
+	{ name: "Contact", href: "/contact" },
 ];
 
 export default function GuestNavBar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-  const currentPath = location.pathname;
+	const [isOpen, setIsOpen] = useState(false);
+	const location = useLocation();
+	const currentPath = location.pathname;
 
-  return (
-    <nav>
-      <div className="bg-secondary text-white">
-        <div className="flex justify-between">
-          <div className="flex">
-            <a href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-xl font-outfit">ThinkLedger</span>
-            </a>
-            {/* <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+	return (
+		<nav>
+			<div className="bg-secondary text-white">
+				<div className="flex justify-between">
+					<div className="flex">
+						<div className="flex items-center justify-center">
+							<a
+								href="/"
+								className="flex-shrink-0 flex items-center"
+							>
+								<span className="text-xl font-outfit">
+									ThinkLedger
+								</span>
+							</a>
+							<div className="h-[1rem] w-[2rem] ms-2">
+								<ChartSVG />
+							</div>
+						</div>
+						{/* <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
               {navItems.map((item) => (
                 <a
                   key={item.name}
@@ -38,8 +49,8 @@ export default function GuestNavBar() {
                 </a>
               ))}
             </div> */}
-          </div>
-          {/* <div className="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-4">
+					</div>
+					{/* <div className="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-4">
             <Button variant="outline" asChild>
               <a href="/register">Register</a>
             </Button>
@@ -47,7 +58,7 @@ export default function GuestNavBar() {
               <a href="/login">Login</a>
             </Button>
           </div> */}
-          {/* <div className="flex items-center sm:hidden">
+					{/* <div className="flex items-center sm:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button
@@ -96,8 +107,8 @@ export default function GuestNavBar() {
               </SheetContent>
             </Sheet>
           </div> */}
-        </div>
-      </div>
-    </nav>
-  );
+				</div>
+			</div>
+		</nav>
+	);
 }
