@@ -4,7 +4,7 @@ import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { X } from "lucide-react";
-import { WaitlistFormActionResponse } from "~/lib/types";
+import { WaitlistFormActionResponse, WaitlistFormErrors } from "~/lib/types";
 import { Card } from "~/components/ui/card";
 import { btn, linkText } from "~/lib/styles";
 
@@ -22,12 +22,24 @@ export default function JoinWaitlist({
 	shouldClose,
 }: Props) {
 	const [show, setShow] = useState<boolean>(false);
+	const [errors, setErrors] = useState<WaitlistFormErrors | null>(null);
 
 	useEffect(() => {
 		if (shouldClose) {
 			setShow(false);
 		}
 	}, [shouldClose]);
+
+	useEffect(() => {
+		if (fetch.data?.errors) {
+			setErrors(fetch.data.errors);
+		}
+	}, [fetch.data]);
+
+	// Clears form errors when you users closes the pop up
+	const handleClear = () => {
+		setErrors(null);
+	};
 
 	if (!show) {
 		return (
@@ -49,7 +61,10 @@ export default function JoinWaitlist({
 					<Button
 						variant={"ghost"}
 						size={"icon"}
-						onClick={() => setShow(false)}
+						onClick={() => {
+							handleClear();
+							setShow(false);
+						}}
 						className="h-8 w-8"
 					>
 						<X className="h-8 w-8" />
@@ -74,7 +89,7 @@ export default function JoinWaitlist({
 							type="text"
 						/>
 						<p className="text-sm text-red-500">
-							{fetch.data?.errors?.firstname}
+							{errors?.firstname}
 						</p>
 					</div>
 					<div>
@@ -89,8 +104,8 @@ export default function JoinWaitlist({
 							type="text"
 							className="font-poppins text-gray-900"
 						/>
-						<p className="text-sm text-red-500">
-							{fetch.data?.errors?.lastname}
+						<p className="text-sm text-red-500 clear-field">
+							{errors?.lastname}
 						</p>
 					</div>
 					<div>
@@ -105,8 +120,8 @@ export default function JoinWaitlist({
 							name="email"
 							id="email"
 						/>
-						<p className="text-sm text-red-500">
-							{fetch.data?.errors?.email}
+						<p className="text-sm text-red-500 clear-field">
+							{errors?.email}
 						</p>
 					</div>
 					<p className="text-sm">
