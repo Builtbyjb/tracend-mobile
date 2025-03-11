@@ -1,5 +1,5 @@
 
-FROM node:23-slim
+FROM node:23-slim AS builder
 
 # set working directory
 WORKDIR /app
