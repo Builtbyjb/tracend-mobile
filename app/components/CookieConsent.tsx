@@ -179,7 +179,7 @@ export default function CookieConsentBanner() {
 	return (
 		<div className="w-[100%] h-[100%] fixed top-0 left-0 z-20 bg-primary bg-opacity-[0.8]">
 			<div className="fixed bottom-0 left-0 right-0 p-4 md:p-6">
-				<Card className="w-full max-w-6xl mx-auto border bg-primary">
+				<Card className="p-4 bg-primary">
 					<CardHeader className="flex flex-row items-start justify-between space-y-0 pb-2">
 						<div>
 							<CardTitle className="text-xl">
@@ -257,7 +257,7 @@ export default function CookieConsentBanner() {
 												<span className="mb-2">
 													{cookie.title}
 												</span>
-												<p className="leading-[1.2]">
+												<p className="leading-[1.5]">
 													{cookie.description}
 												</p>
 											</Label>
@@ -294,7 +294,7 @@ export default function CookieConsentBanner() {
 															<DialogTitle>
 																{cookie.title}
 															</DialogTitle>
-															<DialogDescription className="leading-[1.2]">
+															<DialogDescription className="leading-[1.5]">
 																{cookie.info}
 															</DialogDescription>
 														</DialogHeader>

@@ -1,4 +1,5 @@
 import { HandCoins, Lightbulb, MousePointerClick, Timer } from "lucide-react";
+import { Card, CardDescription, CardHeader } from "~/components/ui/card";
 
 const benefits = [
 	{
@@ -34,21 +35,21 @@ const benefits = [
 
 export default function Benefits() {
 	return (
-		<div className="text-center">
-			<h2 className="text-4xl text-white leading-[1.3] mb-8 font-bold">
+		<div>
+			<h2 className="text-2xl mb-8 font-medium">
 				Why you will love ThinkLedger
 			</h2>
-			<div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			<div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
 				{benefits.map((benefit, index) => (
-					<div key={index} className="">
-						<div className="flex items-center text-white">
+					<Card key={index} className="p-4">
+						<CardHeader>
 							<benefit.icon className="w-8 h-8 mb-4 me-4" />
-							<h3 className="text-xl font-semibold mb-2">
+							<h3 className="text-xl font-medium mb-2">
 								{benefit.title}
 							</h3>
-						</div>
-						<p className="text-white">{benefit.description}</p>
-					</div>
+						</CardHeader>
+						<CardDescription>{benefit.description}</CardDescription>
+					</Card>
 				))}
 			</div>
 		</div>

@@ -2,14 +2,14 @@ import type { MetaFunction } from "@remix-run/node";
 import Features from "./Features";
 import Benefits from "./Benefits";
 import Cta from "./Cta";
-import { Link, useFetcher } from "@remix-run/react";
+import { useFetcher } from "@remix-run/react";
 import { useState, useRef, useEffect } from "react";
 import { validateData, getEnv, validateENV } from "~/lib/utils";
 import * as z from "zod";
 import { AxiosError } from "axios";
 import api from "~/lib/api";
 import type { ActionFunctionArgs } from "@remix-run/node";
-import { WaitlistFormActionResponse, WaitlistFormErrors } from "~/lib/types";
+import { WaitlistFormActionResponse } from "~/lib/types";
 // import Testimonials from "./Testimonials";
 // import Pricing from "~/components/Pricing";
 
@@ -19,9 +19,9 @@ export const meta: MetaFunction = () => {
 		{
 			name: "description",
 			content: `Welcome to ThinkLedger. We help business owners like you 
-      to effortlessly track your business’s financial health with automated, 
-      accurate bookkeeping and AI-driven financial analysis while keeping 
-      you in full control of your financial data.`,
+      		to effortlessly track your business’s financial health with automated, 
+      		accurate bookkeeping and AI-driven financial analysis while keeping 
+      		you in full control of your financial data.`,
 		},
 	];
 };
@@ -139,37 +139,40 @@ export default function IndexPage() {
 		}
 	};
 	return (
-		<div>
+		<main className="space-y-20">
 			{/* Hero Section */}
-			<section className="pb-2 mb-24 text-center">
-				<h1 className="text-white text-5xl md:text-5xl lg:text-5xl font-bold mb-4 leading-[1.2]">
-					Keep track of your business's financial health.
-				</h1>
-				<p className="text-white mb-8">
-					We help business owners like you to effortlessly track your
-					business’s financial health with automated, accurate
-					bookkeeping and AI-driven financial analysis while keeping
-					you in full control of your financial data.
-				</p>
+			<section>
+				<div className="z-20">
+					<h1 className="text-5xl md:text-5xl lg:text-5xl font-medium mb-4 leading-[1.2]">
+						Keep track of your business's financial health.
+					</h1>
+					<p className="text-white mb-8 2xl:w-[70%] xl:w-[70%] l:w-[75%] md:w-[80%] sm:w-[100%] w-[100%]">
+						We help business owners like you to effortlessly track
+						your business’s financial health with automated,
+						accurate bookkeeping and AI-driven financial analysis
+						while keeping you in full control of your financial
+						data.
+					</p>
 
-				<p className="text-white mb-4">
-					Join the waitlist to get early access
-				</p>
-				<Cta
-					formRef={formRef}
-					handleSubmit={waitlistHandleSubmit}
-					fetch={fetcher}
-					shouldClose={shouldClose}
-				/>
+					<p className="text-white mb-4">
+						Join the waitlist to get early access
+					</p>
+					<Cta
+						formRef={formRef}
+						handleSubmit={waitlistHandleSubmit}
+						fetch={fetcher}
+						shouldClose={shouldClose}
+					/>
+				</div>
 			</section>
-			{/* <hr /> */}
+
 			{/* Features Section */}
-			<section id="features" className="mb-24">
+			<section id="features">
 				<Features />
 			</section>
 
 			{/* Benefits section */}
-			<section id="benefits" className="mb-24">
+			<section id="benefits">
 				<Benefits />
 			</section>
 
@@ -184,8 +187,8 @@ export default function IndexPage() {
         </section> */}
 
 			{/* CTA Section */}
-			<section className="text-center">
-				<h2 className="text-4xl font-bold mb-4">
+			<section id="cta">
+				<h2 className="text-3xl font-medium mb-4">
 					Running a healthy business has never been easier.
 				</h2>
 				<p className="mb-4">
@@ -198,6 +201,6 @@ export default function IndexPage() {
 					shouldClose={shouldClose}
 				/>
 			</section>
-		</div>
+		</main>
 	);
 }
